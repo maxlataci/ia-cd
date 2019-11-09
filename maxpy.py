@@ -1,3 +1,7 @@
+def drop_columns(df, coluna):
+    df.drop(coluna, axis=1)
+    return df
+
 def create_subset(arquivo_origem, limite):
     # cria arquivo destino com 'limite' linhas a partir do arquivo origem
     arquivo_destino = arquivo_origem.replace(".", "_" + str(limite) + ".")
@@ -15,3 +19,4 @@ def create_subset(arquivo_origem, limite):
     origem.close()
     destino.close()
     return arquivo_destino
+
