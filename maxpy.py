@@ -1,3 +1,16 @@
+import pandas as pd
+import numpy as np
+
+def show_df(df):
+    print("O dataframe agora possui", df.shape[0], "linhas e", df.shape[1], "colunas.")
+    print(df.count())
+    print(df.columns)
+    print(df.dtypes)
+    print(df.describe())
+
+def unique_values(df, coluna):
+    print('Valores distintos de', coluna, pd.(df[coluna]))
+
 def drop_columns(df, coluna):
     df.drop(coluna, axis=1)
     return df
