@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def show_df(df):
     print("O dataframe agora possui", df.shape[0], "linhas e", df.shape[1], "colunas.")
@@ -12,6 +13,7 @@ def show_df(df):
 
 def correlacao(df, campo1, campo2):
     print(df[campo1].corr(df[campo2]))
+    plt.scatter(df[campo1], df[campo2])
 
 def agrupa_estados_regiao(df, campo_estado, campo_regiao):
     regiao_norte = ['AC', 'AM', 'AP', 'PA', 'RO', 'RR', 'TO']
