@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sn
 
 def show_df(df):
     print("O dataframe agora possui", df.shape[0], "linhas e", df.shape[1], "colunas.")
@@ -14,12 +15,11 @@ def show_df(df):
 
 def correlacao(df, campo1, campo2):
     print(df[campo1].corr(df[campo2]))
-    plt.scatter(df[campo1], df[campo2])
 
 def detalha_campo(df, campo, tipo="bar"):
     print(unique_values(df, campo))
-    print(df[campo].value_counts(normalize=True).plot(kind=tipo))
-    
+    df[campo].value_counts(normalize=True).plot(kind=tipo)
+    plt.show()
 
 def agrupa_notas(df, novo_campo, campo):
     df[novo_campo] = 'NaN'
@@ -51,7 +51,7 @@ def agrupa_estados_regiao(df, campo_estado, campo_regiao):
 
 def unique_values(df, coluna):
     print("Valores distintos de", coluna, df[coluna].unique())
-    print(pd.value_counts(df[coluna].values, sort=True), "\n")
+    print(pd.value_counts(df[coluna].values, normalize=True, sort=True), "\n")
     return
 
 def drop_columns(df, colunas):
